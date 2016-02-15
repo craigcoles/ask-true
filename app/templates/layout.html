@@ -21,10 +21,11 @@
             var form = $(this);
 
             var ajaxRequest = $.ajax({
-              type: 'POST',
+              method: 'POST',
               url: '/v1/questions',
-              data: { "body": "Just adding some text here", "status": 0 },
-              dataType: "jsonp"
+              data: { 'body': 'Just testing this out as json data', 'status': 0},
+              dataType: "json",
+              contentType: "application/json; charset=utf-8"
             });
 
             //When the request successfully finished, execute passed in function
@@ -34,6 +35,7 @@
 
             //When the request failed, execute the passed in function
             ajaxRequest.fail(function(jqXHR, status){
+              console.log(form.serializeArray());
               console.log(status);
               console.log(jqXHR.responseText);
             });
