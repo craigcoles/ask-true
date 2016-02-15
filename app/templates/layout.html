@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+  {{= this.partial('partials/_head.html') }}
+  <body>
+    <div class="container">
+        {{= this.child() }}
+    </div>
+    <div class="scripts">
+
+      <script src="//ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+      <script>window.jQuery || document.write('<script src="/assets/js/vendor/jquery-1.11.2.min.js"><\/script>')</script>
+
+      <script>
+
+        $(function() {
+
+          $('form.ask-question').submit(function(event) {
+
+            event.preventDefault();
+
+            var form = $(this);
+
+            var ajaxRequest = $.ajax({
+              type: form.attr('method'),
+              url: form.attr('action'),
+              data: form.serializeArray(),
+              dataType: "json",
+              contentType: "application/json; charset=utf-8"
+            });
+
+            //When the request successfully finished, execute passed in function
+            ajaxRequest.done(function(msg){
+              console.log(msg);
+            });
+
+            //When the request failed, execute the passed in function
+            ajaxRequest.fail(function(jqXHR, status){
+              console.log(status);
+              console.log(jqXHR.responseText);
+            });
+
+          });
+
+        });
+
+      </script>
+
+    </div>
+  </body>
+</html>
