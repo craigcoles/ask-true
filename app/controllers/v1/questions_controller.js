@@ -32,7 +32,7 @@ module.exports = (function() {
     create() {
 
       Question.create(this.params.body, (err, model) => {
-
+        console.log(this.params.body);
         this.respond(err || model);
 
       });
