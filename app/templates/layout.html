@@ -21,11 +21,10 @@
             var form = $(this);
 
             var ajaxRequest = $.ajax({
-              type: form.attr('method'),
-              url: form.attr('action'),
-              data: form.serializeArray(),
-              dataType: "json",
-              contentType: "application/json; charset=utf-8"
+              type: 'POST',
+              url: '/v1/questions',
+              data: { "body": "Just adding some text here", "status": 0 },
+              dataType: "jsonp"
             });
 
             //When the request successfully finished, execute passed in function
