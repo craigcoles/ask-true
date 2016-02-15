@@ -23,8 +23,9 @@
             var ajaxRequest = $.ajax({
               method: 'POST',
               url: '/v1/questions',
-              data: form.serialize(),
-              dataType: "json"
+              data: form.serializeArray(),
+              dataType: "json",
+              contentType: "application/json; charset=utf-8"
             });
 
             //When the request successfully finished, execute passed in function
@@ -34,7 +35,6 @@
 
             //When the request failed, execute the passed in function
             ajaxRequest.fail(function(jqXHR, status){
-              console.log( form.serializeArray() );
               console.log( status );
               console.log( jqXHR.responseText );
             });
