@@ -2,7 +2,7 @@
 
 ## Running Locally
 
-**Note**: You need to make sure you are running [Node](https://nodejs.org) 5.x or higher
+* **Note**: You need to make sure you are running [Node](https://nodejs.org) 5.x or higher
 
 * Install Nodal globally
 
