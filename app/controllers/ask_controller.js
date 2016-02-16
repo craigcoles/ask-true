@@ -23,8 +23,7 @@ module.exports = (function() {
           this.params,
           {
             test: this.params.query.test,
-            name: 'Answer a question - Ask True',
-            question: test
+            name: 'Answer a question - Ask True'
           }
         )
       );
