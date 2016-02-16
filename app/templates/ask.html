@@ -1,3 +1,7 @@
 <p>This is a question, fo sho!</p>
-
-{{ console.log(data); }}
+{{= data.question.body}}
+<form action="/v1/questions/{{= data.question.id}}" method="POST">
+  <input type="hidden" name="body" id="body" value="{{= data.question.body}}">
+  <input type="hidden" name="answered" id="answered" value="true">
+  <button>Answered</button>
+</form>

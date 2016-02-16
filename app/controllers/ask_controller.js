@@ -7,27 +7,20 @@ module.exports = (function() {
 
   class AskController extends Nodal.Controller {
 
-    get() {
+    index() {
+      Question.query().end((err, models) => {
+        var i = Math.floor(Math.random() * models.length);
 
-      var test = function() {
-        Question.query()
-        .end((err, models) => {
-
-          this.respond(err || models);
-
-        });
-      };
-
-      this.render(
-        Nodal.Template.generate('layout.html', 'ask.html').render(
-          this.params,
-          {
-            test: this.params.query.test,
-            name: 'Answer a question - Ask True'
-          }
-        )
-      );
-
+        this.render(
+          Nodal.Template.generate('layout.html', 'ask.html').render(
+            this.params,
+            {
+              question: { id: models[i].get('id'), body: models[i].get('body') },
+              name: 'Answer a question - Ask True'
+            }
+          )
+        );
+      });
     }
 
   }
