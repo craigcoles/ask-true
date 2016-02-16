@@ -1,7 +1,6 @@
 <p>This is a question, fo sho!</p>
 {{= data.question.body}}
-<form action="/v1/questions/{{= data.question.id}}" method="POST">
-  <input type="hidden" name="body" id="body" value="{{= data.question.body}}">
-  <input type="hidden" name="answered" id="answered" value="true">
+<form action="/v1/questions/{{= data.question.id}}" method="PUT">
+  <input type="hidden" name="status" id="status" value="1">
   <button>Answered</button>
 </form>

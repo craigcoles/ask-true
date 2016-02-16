@@ -41,7 +41,7 @@ module.exports = (function() {
 
     update() {
 
-      Question.update(this.params.route.id, this.params.body, (err, model) => {
+      Question.update(this.params.route.id, this.params, (err, model) => {
 
         this.respond(err || model);
 
