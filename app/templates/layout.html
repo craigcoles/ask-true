@@ -18,14 +18,16 @@
 
             event.preventDefault();
 
-            var form = $(this);
+            var $form = $(this),
+                question = $form.find('textarea[name="body"]').val(),
+                status = $form.find('input[name="status"]').val();
 
             var ajaxRequest = $.ajax({
               method: 'POST',
               url: '/v1/questions',
-              data: form.serializeArray(),
+              data: JSON.stringify({ "body": question, "status": status }),
               dataType: "json",
-              contentType: "application/x-www-form-urlencoded"
+              contentType: "application/json"
             });
 
             //When the request successfully finished, execute passed in function
