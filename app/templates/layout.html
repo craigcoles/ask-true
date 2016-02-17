@@ -43,6 +43,35 @@
 
           });
 
+          $('form.answer-question').submit(function(event) {
+
+            event.preventDefault();
+
+            var $form = $(this),
+                url = $form.attr('action'),
+                status = $form.find('input[name="status"]').val();
+
+            var ajaxRequest = $.ajax({
+              method: 'PUT',
+              url: url,
+              data: JSON.stringify({ "status": status }),
+              dataType: "json",
+              contentType: "application/json"
+            });
+
+            //When the request successfully finished, execute passed in function
+            ajaxRequest.done(function(msg){
+              console.log(msg);
+            });
+
+            //When the request failed, execute the passed in function
+            ajaxRequest.fail(function(jqXHR, status){
+              console.log( status );
+              console.log( jqXHR.responseText );
+            });
+
+          });
+
         });
 
       </script>

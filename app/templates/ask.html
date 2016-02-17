@@ -1,6 +1,8 @@
 <p>This is a question, fo sho!</p>
+
 {{= data.question.body}}
-<form action="/v1/questions/{{= data.question.id}}" method="PUT">
+
+<form class="answer-question" action="/v1/questions/{{= data.question.id}}" method="DELETE">
   <input type="hidden" name="status" id="status" value="1">
   <button>Answered</button>
 </form>
