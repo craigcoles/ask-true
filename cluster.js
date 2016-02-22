@@ -14,7 +14,6 @@ module.exports = (() => {
 
     const app = new Nodal.Application();
     app.listen(Nodal.my.Config.secrets.port);
-    app.use(express.static(process.env.PWD + '/static'));
 
   }
 
