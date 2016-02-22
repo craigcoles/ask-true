@@ -1,0 +1,16 @@
+{
+  "name": "Ask True",
+  "description": "A Nodal app that allows people to submit questions",
+  "logo": "",
+  "keywords": [
+    "node",
+    "nodal"
+  ],
+  "scripts": {
+    "postdeploy": "nodal db:prepare"
+  },
+  "env": {
+    "NODE_ENV": "production"
+  },
+   "addons": ["heroku-postgresql"]
+}
