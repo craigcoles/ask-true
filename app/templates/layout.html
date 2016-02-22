@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html>
-  {{= this.partial('partials/_head.html') }}
+  {{= this.partial('head.html') }}
   <body>
     <div class="container">
         {{= this.child() }}
@@ -52,7 +52,7 @@
                 status = $form.find('input[name="status"]').val();
 
             var ajaxRequest = $.ajax({
-              method: 'PUT',
+              method: 'DELETE',
               url: url,
               data: JSON.stringify({ "status": status }),
               dataType: "json",

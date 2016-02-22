@@ -1,15 +1,14 @@
 {
-  "name": "ask-true",
+  "name": "ask-true-nodal",
   "version": "0.0.0",
-  "description": "ask-true",
+  "description": "ask-true-nodal",
   "author": "Craig Coles",
   "main": "server.js",
   "engines": {
     "node": "4.2.4"
   },
   "dependencies": {
-    "bcrypt": "^0.8.5",
-    "nodal": "0.7.5"
+    "nodal": "0.7.9"
   },
   "devDependencies": {
     "chai": "~3.5.0",

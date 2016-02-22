@@ -32,7 +32,7 @@ module.exports = (function() {
     create() {
 
       Question.create(this.params.body, (err, model) => {
-        console.log(this.params.body);
+
         this.respond(err || model);
 
       });
@@ -41,7 +41,7 @@ module.exports = (function() {
 
     update() {
 
-      Question.update(this.params.route.id, this.params, (err, model) => {
+      Question.update(this.params.route.id, this.params.body, (err, model) => {
 
         this.respond(err || model);
 

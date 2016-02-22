@@ -8,13 +8,13 @@ module.exports = (function() {
 
     constructor(db) {
       super(db);
-      this.id = 2016021419543661;
+      this.id = 2016022220073487;
     }
 
     up() {
 
       return [
-        this.createTable("questions", [{"name":"body","type":"string"}, {"name":"status","type":"int"}])
+        this.createTable("questions", [{"name":"body","type":"string"},{"name":"status","type":"int"}])
       ];
 
     }

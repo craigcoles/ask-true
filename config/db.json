@@ -6,7 +6,7 @@
       "port": "5432",
       "user": "postgres",
       "password": "",
-      "database": "ask_true_development"
+      "database": "ask_true_nodal_development"
     }
   },
   "test": {
@@ -16,7 +16,7 @@
       "port": "5432",
       "user": "postgres",
       "password": "",
-      "database": "ask_true_test"
+      "database": "ask_true_nodal_test"
     }
   },
   "production": {
