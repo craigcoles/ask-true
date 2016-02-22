@@ -1,5 +1,25 @@
-<form class="ask-question" action="/v1/questions" method="post">
-  <textarea name="body" cols="30" rows="10"></textarea>
-  <input type="hidden" name="status" value="0">
-  <input type="submit" value="Submit">
-</form>
+<div class="question question--ask">
+
+  <div class="form form--ask">
+
+    <form data-ask-form action="/v1/questions" method="POST">
+
+      <div class="form-field form-field--input">
+        <textarea name="body" maxlength="500"></textarea>
+        <input name="status" type="hidden" value="0">
+      </div>
+
+      <div class="form__options">
+        <div class="form-field form-field--submit">
+          <button type="submit" data-button name="button" type="button">
+            <span class="button__text">Ask</span>
+            <span class="button__text--hover">Ask</span>
+          </button>
+        </div>
+      </div>
+
+    </form>
+
+  </div>
+
+</div>

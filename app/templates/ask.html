@@ -1,8 +1,21 @@
-<p>This is a question, fo sho!</p>
+<div class="question question--answer">
 
-{{= data.question.body}}
+  <p class="question__body">{{= data.question.body}}</p>
 
-<form class="answer-question" action="/v1/questions/{{= data.question.id}}" method="DELETE">
-  <input type="hidden" name="status" id="status" value="1">
-  <button>Answered</button>
-</form>
+  <div class="form form--answer">
+
+    <form data-ask-form action="/v1/questions/{{= data.question.id}}" method="DELETE">
+      <input type="hidden" name="status" id="status" value="1">
+      <div class="form__options">
+        <div class="form-field form-field--submit">
+          <button type="submit" data-button name="button" type="button">
+            <span class="button__text">Answered</span>
+            <span class="button__text--hover">Answered</span>
+          </button>
+        </div>
+      </div>
+    </form>
+
+  </div>
+
+</div>
