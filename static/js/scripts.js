@@ -52,17 +52,34 @@ var askForm = (function ($) {
       contentType: "application/json"
     });
 
-    //When the request successfully finished, execute passed in function
+    // When the request successfully finished, execute passed in function
     ajaxRequest.done(function(msg){
       console.log(msg);
+      $('.form--ask [data-button]').prop('disabled', true);
+      $('.form--ask').addClass('form--processed');
+      setTimeout(function(){ $('.response--success').addClass('response--active') }, 600);
     });
 
-    //When the request failed, execute the passed in function
+    // When the request failed, execute the passed in function
     ajaxRequest.fail(function(jqXHR, status){
       console.log( status );
       console.log( jqXHR.responseText );
+      $('.form--ask [data-button]').prop('disabled', true);
+      $('.form--ask').addClass('form--processed');
+      setTimeout(function(){ $('.response--error').addClass('response--active') }, 600);
     });
 
+  });
+
+  $('[data-show-ask-form]').on('click', function() {
+    if ( $(this).data("show-ask-form") == 'success' ) {
+      var resetValue = $('.form--ask textarea').attr('maxlength');
+      $('.form--ask textarea').val('');
+      $('.form--ask .form-field--count span').text(resetValue);
+    }
+    $('.form--ask [data-button]').prop('disabled', false);
+    $('.response--active').removeClass('response--active');
+    setTimeout(function(){ $('.form--processed').removeClass('form--processed'); }, 600);
   });
 
 })(jQuery);
@@ -78,7 +95,7 @@ var answerForm = (function ($) {
         status = $form.find('input[name="status"]').val();
 
     var ajaxRequest = $.ajax({
-      method: 'DELETE',
+      method: 'PUT',
       url: url,
       data: JSON.stringify({ "status": status }),
       dataType: "json",

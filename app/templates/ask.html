@@ -4,7 +4,7 @@
 
   <div class="form form--answer">
 
-    <form data-ask-form action="/v1/questions/{{= data.question.id}}" method="DELETE">
+    <form data-answer-form action="/v1/questions/{{= data.question.id}}" method="PUT">
       <input type="hidden" name="status" id="status" value="1">
       <div class="form__options">
         <div class="form-field form-field--submit">

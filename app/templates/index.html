@@ -5,8 +5,13 @@
     <form data-ask-form action="/v1/questions" method="POST">
 
       <div class="form-field form-field--input">
-        <textarea name="body" maxlength="500"></textarea>
+
+        <div class="input-wrap">
+          <textarea placeholder="Type your question..." name="body" maxlength="500"></textarea>
+        </div>
+
         <input name="status" type="hidden" value="0">
+
       </div>
 
       <div class="form__options">
@@ -21,5 +26,27 @@
     </form>
 
   </div>
+
+</div>
+
+<div class="response response--success">
+
+    <h3 class="response__heading">Your question has been submitted.</h3>
+
+    <button data-button data-show-ask-form="success" name="button" type="button">
+      <span class="button__text">Ask another?</span>
+      <span class="button__text--hover">Ask another?</span>
+    </button>
+
+</div>
+
+<div class="response response--error">
+
+    <h3 class="response__heading">There was an error.</h3>
+
+    <button data-button data-show-ask-form="error" name="button" type="button">
+      <span class="button__text">Try again</span>
+      <span class="button__text--hover">Try again</span>
+    </button>
 
 </div>

@@ -8,7 +8,7 @@ module.exports = (function() {
   class AskController extends Nodal.Controller {
 
     index() {
-      Question.query().end((err, models) => {
+      Question.query().where({status: 0}).end((err, models) => {
         var i = Math.floor(Math.random() * models.length);
 
         this.render(
