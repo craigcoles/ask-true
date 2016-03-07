@@ -105,6 +105,7 @@ var answerForm = (function ($) {
     //When the request successfully finished, execute passed in function
     ajaxRequest.done(function(msg){
       console.log(msg);
+      getNewQuestion();
     });
 
     //When the request failed, execute the passed in function
@@ -114,6 +115,42 @@ var answerForm = (function ($) {
     });
 
   });
+
+  function getNewQuestion() {
+
+    var questionRequest = $.ajax({
+      method: 'GET',
+      url: '/v1/questions?status=0',
+      dataType: "json",
+      contentType: "application/json"
+    });
+
+    //When the request successfully finished, execute passed in function
+    questionRequest.done(function(msg){
+      if (msg.data.length) {
+        // Lets show another question and keep this movin'
+        var i = Math.floor(Math.random() * msg.data.length);
+        $('.question--answer').addClass('question--processed');
+        setTimeout(function(){
+          $('.question__body').text(msg.data[i].body);
+          $('.form--answer').prop('action', '/v1/questions/' + msg.data[i].status);
+        }, 400);
+        setTimeout(function(){ $('.question--processed').removeClass('question--processed'); }, 600);
+      } else {
+        // There are no questions
+        $('.form--answer [data-button]').prop('disabled', true);
+        $('.question--answer').addClass('question--processed');
+        setTimeout(function(){ $('.dat-empty-state--modal').addClass('dat-empty-state--active'); }, 600);
+      }
+    });
+
+    //When the request failed, execute the passed in function
+    questionRequest.fail(function(jqXHR, status){
+      console.log( status );
+      console.log( jqXHR.responseText );
+    });
+
+  }
 
 })(jQuery);
 

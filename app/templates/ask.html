@@ -1,21 +1,55 @@
-<div class="question question--answer">
+{{? data.results }}
 
-  <p class="question__body">{{= data.question.body}}</p>
+  <div class="question question--answer">
 
-  <div class="form form--answer">
+      <p class="question__body">{{= data.question.body}}</p>
 
-    <form data-answer-form action="/v1/questions/{{= data.question.id}}" method="PUT">
-      <input type="hidden" name="status" id="status" value="1">
-      <div class="form__options">
-        <div class="form-field form-field--submit">
-          <button type="submit" data-button name="button" type="button">
-            <span class="button__text">Answered</span>
-            <span class="button__text--hover">Answered</span>
-          </button>
-        </div>
+      <div class="form form--answer">
+
+        <form data-answer-form action="/v1/questions/{{= data.question.id}}" method="PUT">
+          <input type="hidden" name="status" id="status" value="1">
+          <div class="form__options">
+            <div class="form-field form-field--submit">
+              <button type="submit" data-button name="button" type="button">
+                <span class="button__text">Answered</span>
+                <span class="button__text--hover">Answered</span>
+              </button>
+            </div>
+          </div>
+        </form>
+
       </div>
-    </form>
 
   </div>
 
-</div>
+  <div class="dat-empty-state dat-empty-state--modal">
+
+    <h2>What happened?</h2>
+    <h3>Yo serious! No questions!?</h3>
+
+    <a href="/" data-button>
+      <span class="button__text">Ask a question</span>
+      <span class="button__text--hover">Ask a question</span>
+    </a>
+
+  </div>
+
+{{??}}
+
+  <div class="question question--answer">
+
+    <div class="dat-empty-state">
+
+      <h2>What happened?</h2>
+      <h3>Yo serious! No questions!?</h3>
+
+      <a href="/" data-button>
+        <span class="button__text">Ask a question</span>
+        <span class="button__text--hover">Ask a question</span>
+      </a>
+
+    </div>
+
+  </div>
+
+{{?}}
