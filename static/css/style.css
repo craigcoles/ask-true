@@ -358,18 +358,19 @@ textarea {
 }
 
 .dat-empty-state h2 {
-  font-size: 60px;
-  font-size: 3.75rem;
-  line-height: 70px;
-  line-height: 4.375rem;
+  font-weight: 800;
+  font-size: 80px;
+  font-size: 5rem;
+  line-height: 90px;
+  line-height: 5.625rem;
   margin-bottom: 10px;
 }
 
 .dat-empty-state h3 {
-  font-size: 40px;
-  font-size: 2.5rem;
-  line-height: 48px;
-  line-height: 3rem;
+  font-size: 22px;
+  font-size: 1.375rem;
+  line-height: 34px;
+  line-height: 2.125rem;
   margin-top: 10px;
 }
 
@@ -405,13 +406,27 @@ textarea {
 
 .response [data-button] {}
 
-.response__heading {
+.response h3,
+.response h4 {
   font-family: Adelle;
-  font-size: 30px;
-  font-size: 1.875rem;
-  line-height: 40px;
-  line-height: 2.5rem;
   color: #fff;
+}
+
+.response h3 {
+  font-weight: 800;
+  font-size: 80px;
+  font-size: 5rem;
+  line-height: 90px;
+  line-height: 5.625rem;
+  margin-bottom: 10px;
+}
+
+.response h4 {
+  font-size: 22px;
+  font-size: 1.375rem;
+  line-height: 34px;
+  line-height: 2.125rem;
+  margin-top: 10px;
 }
 
 
