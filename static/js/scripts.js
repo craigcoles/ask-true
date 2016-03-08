@@ -133,7 +133,7 @@ var answerForm = (function ($) {
         $('.question--answer').addClass('question--processed');
         setTimeout(function(){
           $('.question__body').text(msg.data[i].body);
-          $('.form--answer form').prop('action', '/v1/questions/' + msg.data[i].status);
+          $('.form--answer form').prop('action', '/v1/questions/' + msg.data[i].id);
         }, 400);
         setTimeout(function(){ $('.question--processed').removeClass('question--processed'); }, 600);
       } else {
