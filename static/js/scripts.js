@@ -57,6 +57,7 @@ var askForm = (function ($) {
       console.log(msg);
       $('.form--ask [data-button]').prop('disabled', true);
       $('.form--ask').addClass('form--processed');
+      $('body').addClass('response--shown');
       setTimeout(function(){ $('.response--success').addClass('response--active') }, 600);
     });
 
@@ -66,6 +67,7 @@ var askForm = (function ($) {
       console.log( jqXHR.responseText );
       $('.form--ask [data-button]').prop('disabled', true);
       $('.form--ask').addClass('form--processed');
+      $('body').addClass('response--shown');
       setTimeout(function(){ $('.response--error').addClass('response--active') }, 600);
     });
 
@@ -78,7 +80,9 @@ var askForm = (function ($) {
       $('.form--ask .form-field--count span').text(resetValue);
     }
     $('.form--ask [data-button]').prop('disabled', false);
+    autosize.update($('textarea'));
     $('.response--active').removeClass('response--active');
+    $('body').removeClass('response--shown');
     setTimeout(function(){ $('.form--processed').removeClass('form--processed'); }, 600);
   });
 
