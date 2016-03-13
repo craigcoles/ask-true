@@ -389,6 +389,7 @@ textarea {
 .dat-empty-state h3 {
   font-family: Adelle;
   color: #fff;
+  margin-top: 0;
 }
 
 .dat-empty-state h2 {
